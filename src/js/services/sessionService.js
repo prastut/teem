@@ -104,6 +104,26 @@ angular.module('Teem')
       });
     };
 
+    function updateUserProfile(data, cb) {
+      if(!!users.current()) {
+        swellRTpromise.then(function(){
+          SwellRT.updateUserProfile(data, cb);
+        });
+      } else {
+        cb({error: 'no user logged in'});
+      }
+    }
+
+    function getUserProfile(data, cb) {
+      if(!!users.current()) {
+        swellRTpromise.then(function(){
+          SwellRT.getUserProfile(data, cb);
+        });
+      } else {
+        cb({error: 'no user logged in'});
+      }
+    }
+
     var stopSession = function(){
       swellRTpromise.then(function(){
         users.clearCurrent();
@@ -218,6 +238,8 @@ angular.module('Teem')
     return {
       users: users,
       registerUser: registerUser,
+      updateUserProfile: updateUserProfile,
+      getUserProfile: getUserProfile,
       startSession: startSession,
       stopSession: stopSession,
       loginRequired: loginRequired,

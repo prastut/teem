@@ -1,3 +1,19 @@
+<div ui-content-for="nav-left">
+  <div class="btn-group pull-left">
+    <div ui-toggle="uiSidebarLeft" class="btn sidebar-toggle">
+      <i class="fa fa-bars"></i>
+    </div>
+  </div>
+</div>
+
+<div ui-content-for="sidebar">
+  <div class="sidebar sidebar-left" ng-include="'menu.html'" ng-controller="MenuCtrl"></div>
+</div>
+
+<div ui-content-for="nav-title">
+  <div class="overflow-ellipsis" translate>profile.title</div>
+</div>
+
 <div id="profile" class="section profile">
   <h1 translate>profile.title</h1>
   <form>
@@ -10,13 +26,13 @@
     <div class="form-group row">
       <label for="avatar" class="col-sm-2 form-control-label" translate>profile.avatar.avatar</label>
       <div class="col-sm-10" ng-hide="cropping">
-        <label for="avatar" class="avatar-large">
-          <img ng-src="{{croppedAvatar}}">
+        <label for="avatar" class="avatar-large avatar-mine">
+          <img ng-src="{{avatar}}">
         </label>
         <label for="avatar">
           <div class="btn btn-primary" translate>profile.avatar.change</div>
         </label>
-        <button class="btn" ng-click="deleteAvatar()" ng-disabled="!rawAvatar" translate>profile.avatar.delete</button>
+        <button class="btn" ng-click="deleteAvatar()" ng-disabled="!avatar" translate>profile.avatar.delete</button>
       </div>
       <div class="col-sm-10" ng-hide="true">
         <input type="file" class="form-control" id="avatar">
