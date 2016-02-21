@@ -114,10 +114,10 @@ angular.module('Teem')
       }
     }
 
-    function getUserProfile(data, cb) {
+    function getUserProfile(cb) {
       if(!!users.current()) {
         swellRTpromise.then(function(){
-          SwellRT.getUserProfile(data, cb);
+          SwellRT.getUserProfile(cb);
         });
       } else {
         cb({error: 'no user logged in'});
