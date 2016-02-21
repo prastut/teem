@@ -106,7 +106,7 @@ angular.module('Teem')
 
     function updateUserProfile(data, cb) {
       if(!!users.current()) {
-        swellRTpromise.then(function(){
+        sessionDef.then(function(){
           SwellRT.updateUserProfile(data, cb);
         });
       } else {
@@ -116,7 +116,7 @@ angular.module('Teem')
 
     function getUserProfile(cb) {
       if(!!users.current()) {
-        swellRTpromise.then(function(){
+        sessionDef.then(function(){
           SwellRT.getUserProfile(cb);
         });
       } else {

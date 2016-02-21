@@ -37,16 +37,13 @@ angular.module('Teem')
       }
       angular.element(document.querySelector('#avatar')).on('change', handleFileSelect);
 
-      // TODO This timeout shouldn't be necessary!
-      $timeout(function() {
-        SessionSvc.getUserProfile(function(res) {
-          if (res.data.avatar_url) {
-            $scope.$apply(function() {
-              $scope.avatar = 'http://localhost:9898' + res.data.avatar_url;
-            });
-          }
-        });
-      }, 1000);
+      SessionSvc.getUserProfile(function(res) {
+        if (res.data.avatar_url) {
+          $scope.$apply(function() {
+            $scope.avatar = 'http://localhost:9898' + res.data.avatar_url;
+          });
+        }
+      });
 
       $scope.saveAvatar = function() {
         $scope.cropping = false;
