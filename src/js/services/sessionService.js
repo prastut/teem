@@ -55,6 +55,7 @@ angular.module('Teem')
     };
 
     var sessionDef = $q.defer();
+    var sessionPromise = sessionDef.promise;
     var users = {
       password: '$password$',
       callbacks: {
@@ -106,7 +107,7 @@ angular.module('Teem')
 
     function updateUserProfile(data, cb) {
       if(!!users.current()) {
-        sessionDef.then(function(){
+        sessionPromise.then(function(){
           SwellRT.updateUserProfile(data, cb);
         });
       } else {
@@ -116,7 +117,7 @@ angular.module('Teem')
 
     function getUserProfile(cb) {
       if(!!users.current()) {
-        sessionDef.then(function(){
+        sessionPromise.then(function(){
           SwellRT.getUserProfile(cb);
         });
       } else {
