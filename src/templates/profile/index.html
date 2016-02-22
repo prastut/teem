@@ -27,7 +27,7 @@
       <label for="avatar" class="col-sm-2 form-control-label" translate>profile.avatar.avatar</label>
       <div class="col-sm-10" ng-hide="cropping">
         <label for="avatar" class="avatar-large avatar-mine">
-          <img ng-src="{{avatar}}">
+          <img ng-src="{{avatar || transparent}}">
         </label>
         <label for="avatar">
           <div class="btn btn-primary" translate>profile.avatar.change</div>
